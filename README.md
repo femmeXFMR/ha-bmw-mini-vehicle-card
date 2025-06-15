@@ -1,10 +1,10 @@
-# Home Assistant bmw x5 PHEV card
+# Home Assistant BMW x5 35i Card
 
 The [Home Assistant BMW Connected Drive](https://www.home-assistant.io/integrations/bmw_connected_drive/) integration can be used to extract data from the car. That will give you about 30 integration entries (entities) in your Home Assistant, but it does not come with any visualization.
 
 These are some Home Assistant dashboard cards that can display the BMW X5 information.
 
-This repo is a fork of the https://github.com/filipmaelbrancke/ha-bmw-i4-card (thank you!!) modified for the PHEV X5 with a few added capabilities and refactored sensors/templates.
+This repo is a fork of convicte's [ha-bmw-x5-card](https://github.com/convicte/ha-bmw-x5-card) which was a fork of filipmaelbrancke's [ha-bmw-i4-card](https://github.com/filipmaelbrancke/ha-bmw-i4-card). This card has been adapted for a legacy internal combustion engine X5.
 
 ## charging card
 
