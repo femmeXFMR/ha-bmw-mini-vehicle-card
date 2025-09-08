@@ -1,6 +1,6 @@
 {
   "name": "ha-vehicle-card",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Universal BMW/MINI vehicle Lovelace card (starter scaffold)",
   "main": "dist/ha-vehicle-card.js",
