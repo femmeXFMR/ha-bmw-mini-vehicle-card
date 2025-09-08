@@ -1,5 +1,14 @@
 # BMW/MINI Vehicle Card for Home Assistant
 
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.6.0+-blue.svg)](https://www.home-assistant.io/)
+[![HACS](https://img.shields.io/badge/HACS-Custom%20Repository-orange.svg)](https://hacs.xyz/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![Lit](https://img.shields.io/badge/Lit-3.0+-purple.svg)](https://lit.dev/)
+[![BMW ConnectedDrive](https://img.shields.io/badge/BMW%20ConnectedDrive-Required-green.svg)](https://www.home-assistant.io/integrations/bmw_connected_drive/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card/graphs/commit-activity)
+[![GitHub stars](https://img.shields.io/github/stars/femmeXFMR/ha-bmw-mini-vehicle-card.svg?style=social&label=Star)](https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card)
+
 > **🚧 WORK IN PROGRESS** - This is an active development project. All questions, forks, commits, and contributions are welcome! We're building a universal BMW/MINI vehicle card for the Home Assistant community.
 
 A universal Home Assistant Lovelace card that auto-discovers BMW/MINI vehicles from the ConnectedDrive integration and renders an elegant dashboard for ICE, EV, and PHEV models.
@@ -113,7 +122,18 @@ The card automatically detects vehicle type and capabilities:
 
 ## 📝 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License** (CC BY-NC-SA 4.0).
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+**What this means:**
+- ✅ **Share** — You can copy and redistribute the material
+- ✅ **Adapt** — You can remix, transform, and build upon the material
+- ⚠️ **Attribution** — You must give appropriate credit
+- ❌ **NonCommercial** — You may not use the material for commercial purposes
+- 🔄 **ShareAlike** — You must distribute your contributions under the same license
+
+See the [LICENSE](LICENSE) file for full details.
 
 ## 🙏 Acknowledgments
 
