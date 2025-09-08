@@ -38,10 +38,40 @@ export class HaVehicleCard extends LitElement {
 
       .hero-image {
         width: 100%;
-        height: 120px;
+        height: 200px;
         object-fit: cover;
         border-radius: 8px;
         margin-bottom: 16px;
+        position: relative;
+      }
+
+      .hero-image-container {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+
+      .hero-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-image-overlay .vehicle-name {
+        color: white;
+        font-size: 1.5em;
+        font-weight: 600;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        text-align: center;
       }
 
       .status-row {
@@ -53,10 +83,17 @@ export class HaVehicleCard extends LitElement {
 
       .status-tile {
         background: var(--secondary-background-color, #f5f5f5);
-        border-radius: 8px;
-        padding: 12px;
+        border-radius: 12px;
+        padding: 16px;
         text-align: center;
         border: 1px solid var(--divider-color, #e0e0e0);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .status-tile:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       }
 
       .status-tile .icon {
@@ -157,6 +194,55 @@ export class HaVehicleCard extends LitElement {
         100% { opacity: 1; }
       }
 
+      .progress-bar-container {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background: var(--divider-color, #e0e0e0);
+        border-radius: 2px;
+        margin: 8px 0;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent-color, #03a9f4), var(--accent-color-dark, #0288d1));
+        border-radius: 2px;
+        transition: width 0.3s ease;
+        position: relative;
+      }
+
+      .progress-bar.charging {
+        background: linear-gradient(90deg, #4caf50, #2e7d32);
+        animation: progressPulse 2s infinite;
+      }
+
+      @keyframes progressPulse {
+        0% { box-shadow: 0 0 0 rgba(76, 175, 80, 0.4); }
+        50% { box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); }
+        100% { box-shadow: 0 0 0 rgba(76, 175, 80, 0.4); }
+      }
+
+      .battery-icon.charging {
+        animation: batteryPulse 2s infinite;
+        color: #4caf50;
+      }
+
+      @keyframes batteryPulse {
+        0% { 
+          color: var(--accent-color, #03a9f4);
+          box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+        }
+        50% { 
+          color: #4caf50;
+          box-shadow: 0 0 8px rgba(76, 175, 80, 0.8);
+        }
+        100% { 
+          color: var(--accent-color, #03a9f4);
+          box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+        }
+      }
+
       .error-message {
         color: var(--error-color, #f44336);
         text-align: center;
@@ -222,12 +308,13 @@ export class HaVehicleCard extends LitElement {
 
     // EV/PHEV: Battery
     if (this.selectedVehicle.kind === 'ev' || this.selectedVehicle.kind === 'phev') {
-      const batteryClass = this.selectedVehicle.charging_state === 'on' ? 'charging-indicator' : '';
+      const isCharging = this.selectedVehicle.charging_state === 'charging' || this.selectedVehicle.charging_state === 'on';
+      const batteryClass = isCharging ? 'battery-icon charging' : 'battery-icon';
       tiles.push(html`
         <div class="status-tile">
           <div class="icon ${batteryClass}">🔋</div>
           <div class="value">${this.selectedVehicle.battery_percent || 'N/A'}%</div>
-          <div class="unit">Battery</div>
+          <div class="unit">Battery ${isCharging ? '(Charging)' : ''}</div>
         </div>
       `);
     }
@@ -336,6 +423,37 @@ export class HaVehicleCard extends LitElement {
     return chips;
   }
 
+  private getProgressBars(): TemplateResult {
+    if (!this.selectedVehicle) return html``;
+
+    const bars: TemplateResult[] = [];
+
+    // Battery progress bar for EV/PHEV
+    if ((this.selectedVehicle.kind === 'ev' || this.selectedVehicle.kind === 'phev') && this.selectedVehicle.battery_percent) {
+      const batteryPercent = parseFloat(this.selectedVehicle.battery_percent);
+      const isCharging = this.selectedVehicle.charging_state === 'charging';
+      
+      bars.push(html`
+        <div class="progress-bar-container">
+          <div class="progress-bar ${isCharging ? 'charging' : ''}" style="width: ${batteryPercent}%"></div>
+        </div>
+      `);
+    }
+
+    // Fuel progress bar for ICE/PHEV
+    if ((this.selectedVehicle.kind === 'ice' || this.selectedVehicle.kind === 'phev') && this.selectedVehicle.fuel_percent) {
+      const fuelPercent = parseFloat(this.selectedVehicle.fuel_percent);
+      
+      bars.push(html`
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: ${fuelPercent}%"></div>
+        </div>
+      `);
+    }
+
+    return html`${bars}`;
+  }
+
   private getDetailsContent(): TemplateResult {
     if (!this.selectedVehicle) return html``;
 
@@ -405,12 +523,19 @@ export class HaVehicleCard extends LitElement {
       </div>
 
       ${this.config.image ? html`
-        <img class="hero-image" src="${this.config.image}" alt="${this.selectedVehicle.name}" />
+        <div class="hero-image-container">
+          <img class="hero-image" src="${this.config.image}" alt="${this.selectedVehicle.name}" />
+          <div class="hero-image-overlay">
+            <div class="vehicle-name">${this.selectedVehicle.name}</div>
+          </div>
+        </div>
       ` : ''}
 
       <div class="status-row">
         ${this.getStatusTiles()}
       </div>
+
+      ${this.getProgressBars()}
 
       <div class="actions-row">
         ${this.getActionChips()}
