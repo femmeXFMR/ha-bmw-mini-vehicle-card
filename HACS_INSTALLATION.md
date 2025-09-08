@@ -14,8 +14,10 @@
 3. Click the **"+"** button in the bottom right
 4. Add the following:
    - **Repository:** `https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card`
-   - **Category:** `Lovelace`
+   - **Category:** `Lovelace` (NOT Integration!)
 5. Click **"Add"**
+
+**⚠️ Important:** Make sure you select **"Lovelace"** as the category, NOT "Integration"!
 
 ### Step 2: Install the Card
 
@@ -64,6 +66,11 @@ After installation, you should see:
 | `tank_size_l` | number | - | Tank size for fuel % |
 
 ## 🆘 Troubleshooting
+
+### "Repository structure for main is not compliant" Error
+- **❌ Wrong:** You selected "Integration" as the type
+- **✅ Correct:** Select "Lovelace" as the category
+- This is a **frontend card**, not a backend integration
 
 ### Card Not Showing
 - Make sure HACS is installed and updated

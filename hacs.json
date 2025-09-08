@@ -19,6 +19,7 @@
   "hide_default_branch": false,
   "homeassistant": "2024.6.0",
   "iot_class": "Local Polling",
+  "content_in_root": true,
   "dependencies": [
     {
       "name": "BMW Connected Drive",
