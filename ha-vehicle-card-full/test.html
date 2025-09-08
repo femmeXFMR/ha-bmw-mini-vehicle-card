@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW/MINI Vehicle Card Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .test-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .config-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 BMW/MINI Vehicle Card Test Suite</h1>
+        
+        <div class="test-section">
+            <h2 class="test-title">📋 Test Overview</h2>
+            <p class="test-description">
+                This test suite validates the BMW/MINI Vehicle Card implementation against the requirements 
+                specified in the project brief. Each test simulates different vehicle configurations and 
+                validates the card's behavior.
+            </p>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">🔍 Test 1: ICE Vehicle Discovery</h2>
+            <p class="test-description">
+                Tests auto-discovery and rendering of an Internal Combustion Engine (ICE) vehicle 
+                with fuel, range, and odometer data.
+            </p>
+            <div class="config-example">
+type: 'custom:ha-vehicle-card'
+title: 'BMW X5 xDrive35i'
+prefer_imperial: false
+            </div>
+            <div id="test1-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">🔋 Test 2: EV Vehicle Discovery</h2>
+            <p class="test-description">
+                Tests auto-discovery and rendering of an Electric Vehicle (EV) with battery, 
+                electric range, and charging state.
+            </p>
+            <div class="config-example">
+type: 'custom:ha-vehicle-card'
+title: 'BMW i4'
+image: '/local/bmw/i4-hero.png'
+prefer_imperial: true
+            </div>
+            <div id="test2-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">⚡ Test 3: PHEV Vehicle Discovery</h2>
+            <p class="test-description">
+                Tests auto-discovery and rendering of a Plug-in Hybrid Electric Vehicle (PHEV) 
+                with both fuel and battery data.
+            </p>
+            <div class="config-example">
+type: 'custom:ha-vehicle-card'
+title: 'BMW X5 xDrive50e'
+tank_size_l: 70
+prefer_imperial: true
+            </div>
+            <div id="test3-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">🎛️ Test 4: Action Buttons</h2>
+            <p class="test-description">
+                Tests the functionality of action buttons (lock/unlock, flash, horn, vent, find) 
+                and their integration with Home Assistant services.
+            </p>
+            <div class="config-example">
+# Expected entities:
+# - button.x5_xdrive35i_flash_lights
+# - button.x5_xdrive35i_sound_horn
+# - button.x5_xdrive35i_activate_air_conditioning
+# - button.x5_xdrive35i_find_vehicle
+# - lock.x5_xdrive35i_lock
+            </div>
+            <div id="test4-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">🌍 Test 5: Unit Conversion</h2>
+            <p class="test-description">
+                Tests imperial/metric unit conversion for distance, volume, and fuel economy.
+            </p>
+            <div class="config-example">
+# Test conversions:
+# - km → mi (distance)
+# - L → gal (volume)  
+# - L/100km → mpg (fuel economy)
+            </div>
+            <div id="test5-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">⚙️ Test 6: Card Editor</h2>
+            <p class="test-description">
+                Tests the card editor UI functionality and configuration validation.
+            </p>
+            <div class="config-example">
+# Editor features to test:
+# - Vehicle selection dropdown
+# - Title input
+# - Image path input
+# - Imperial units checkbox
+# - Tank size input
+# - Live preview
+            </div>
+            <div id="test6-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">🔄 Test 7: Fallback Handling</h2>
+            <p class="test-description">
+                Tests graceful handling of missing entities and fallback calculations.
+            </p>
+            <div class="config-example">
+# Fallback scenarios:
+# - Missing fuel_percent but fuel_l + tank_size_l available
+# - Missing range_fuel but range_total available
+# - Missing charging_state for EV
+# - Missing action buttons
+            </div>
+            <div id="test7-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">📱 Test 8: Responsive Design</h2>
+            <p class="test-description">
+                Tests the card's responsive design across different screen sizes.
+            </p>
+            <div class="config-example">
+# Screen sizes to test:
+# - Mobile (320px - 768px)
+# - Tablet (768px - 1024px)
+# - Desktop (1024px+)
+            </div>
+            <div id="test8-status" class="status warning">
+                ⏳ Test not yet implemented - requires Home Assistant environment
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">✅ Implementation Status</h2>
+            <p class="test-description">
+                Current implementation status and next steps.
+            </p>
+            <div class="status success">
+                ✅ <strong>Core Implementation Complete</strong><br>
+                - TypeScript/Lit card component ✅<br>
+                - Auto-discovery logic ✅<br>
+                - Multi-powertrain support ✅<br>
+                - Action buttons ✅<br>
+                - Unit conversion ✅<br>
+                - Card editor ✅<br>
+                - Build system ✅<br>
+                - Documentation ✅
+            </div>
+            <div class="status warning">
+                ⚠️ <strong>Next Steps</strong><br>
+                - Integration testing with real Home Assistant<br>
+                - Vehicle-specific testing<br>
+                - Performance optimization<br>
+                - Error handling improvements<br>
+                - HACS packaging
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test runner would go here in a real implementation
+        console.log('BMW/MINI Vehicle Card Test Suite loaded');
+        console.log('Implementation status: Core features complete, ready for integration testing');
+    </script>
+</body>
+</html>

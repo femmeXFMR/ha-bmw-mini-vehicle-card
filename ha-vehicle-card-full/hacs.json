@@ -1,0 +1,50 @@
+{
+  "name": "ha-vehicle-card",
+  "render_readme": true,
+  "filename": "ha-vehicle-card.js",
+  "country": [
+    "US",
+    "DE",
+    "GB",
+    "CA"
+  ],
+  "hide_default_branch": false,
+  "homeassistant": "2024.6.0",
+  "iot_class": "Local Polling",
+  "dependencies": [
+    {
+      "name": "BMW Connected Drive",
+      "integration": "bmw_connected_drive",
+      "required": true,
+      "description": "Official BMW ConnectedDrive integration for vehicle data"
+    }
+  ],
+  "optional_dependencies": [
+    {
+      "name": "Card Mod",
+      "integration": "card_mod",
+      "required": false,
+      "description": "For advanced CSS styling and customization"
+    },
+    {
+      "name": "Button Card",
+      "integration": "button_card",
+      "required": false,
+      "description": "For enhanced button styling (if users want to customize action buttons)"
+    },
+    {
+      "name": "Bar Card",
+      "integration": "bar_card",
+      "required": false,
+      "description": "For progress bars (if users want to add custom progress indicators)"
+    }
+  ],
+  "requirements": [
+    "home-assistant-js-websocket>=1.0.0"
+  ],
+  "documentation": "https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card",
+  "issue_tracker": "https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card/issues",
+  "codeowners": [
+    "@YOUR_USERNAME"
+  ]
+}

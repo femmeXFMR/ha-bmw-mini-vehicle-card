@@ -1,0 +1,193 @@
+# BMW/MINI Vehicle Card - Example Configurations
+# Copy these examples to your Home Assistant dashboard
+
+# =============================================================================
+# BASIC ICE VEHICLE (BMW X5 xDrive35i)
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'BMW X5 xDrive35i'
+prefer_imperial: false
+
+# =============================================================================
+# ICE VEHICLE WITH HERO IMAGE
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'My BMW X5'
+image: '/local/bmw/x5-hero.png'
+prefer_imperial: true
+
+# =============================================================================
+# EV VEHICLE (BMW i4)
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'BMW i4'
+image: '/local/bmw/i4-hero.png'
+prefer_imperial: false
+
+# =============================================================================
+# PHEV VEHICLE (BMW X5 xDrive50e)
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'BMW X5 xDrive50e'
+image: '/local/bmw/x5-phev-hero.png'
+tank_size_l: 70
+prefer_imperial: true
+
+# =============================================================================
+# MINI COOPER SE (EV)
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'MINI Cooper SE'
+image: '/local/mini/cooper-se-hero.png'
+prefer_imperial: false
+
+# =============================================================================
+# MINI COUNTRYMAN PHEV
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'MINI Countryman PHEV'
+image: '/local/mini/countryman-phev-hero.png'
+tank_size_l: 50
+prefer_imperial: true
+
+# =============================================================================
+# MULTIPLE VEHICLES - SPECIFIC DEVICE ID
+# =============================================================================
+# If you have multiple vehicles, you can specify which one to display
+type: 'custom:ha-vehicle-card'
+title: 'Primary Vehicle'
+device_id: 'x5_xdrive35i'
+prefer_imperial: false
+
+# =============================================================================
+# MINIMAL CONFIGURATION (AUTO-DETECT EVERYTHING)
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+
+# =============================================================================
+# ADVANCED CONFIGURATION WITH ALL OPTIONS
+# =============================================================================
+type: 'custom:ha-vehicle-card'
+title: 'BMW X5 xDrive50e'
+image: '/local/bmw/x5-phev-hero.png'
+device_id: 'x5_xdrive50e'
+prefer_imperial: true
+tank_size_l: 70
+
+# =============================================================================
+# DASHBOARD INTEGRATION EXAMPLES
+# =============================================================================
+
+# Example 1: Vehicle card in a vertical stack
+type: vertical-stack
+cards:
+  - type: 'custom:ha-vehicle-card'
+    title: 'BMW X5'
+    image: '/local/bmw/x5-hero.png'
+    prefer_imperial: true
+  - type: entities
+    title: 'Vehicle Details'
+    entities:
+      - sensor.x5_xdrive35i_mileage
+      - sensor.x5_xdrive35i_remaining_fuel_percent
+
+# Example 2: Vehicle card in a horizontal stack
+type: horizontal-stack
+cards:
+  - type: 'custom:ha-vehicle-card'
+    title: 'BMW X5'
+    prefer_imperial: false
+  - type: 'custom:ha-vehicle-card'
+    title: 'BMW i4'
+    prefer_imperial: false
+
+# Example 3: Vehicle card with conditional display
+type: conditional
+conditions:
+  - condition: state
+    entity: device_tracker.x5_xdrive35i
+    state_not: 'unavailable'
+card:
+  type: 'custom:ha-vehicle-card'
+  title: 'BMW X5'
+  prefer_imperial: true
+
+# =============================================================================
+# ENTITY MAPPING REFERENCE
+# =============================================================================
+# The card automatically discovers these entity patterns:
+
+# ICE Vehicle Entities:
+# - device_tracker.{vehicle_name}
+# - lock.{vehicle_name}_lock
+# - sensor.{vehicle_name}_mileage
+# - sensor.{vehicle_name}_remaining_fuel
+# - sensor.{vehicle_name}_remaining_fuel_percent
+# - sensor.{vehicle_name}_remaining_range_fuel
+# - sensor.{vehicle_name}_remaining_range_total
+# - binary_sensor.{vehicle_name}_windows
+# - binary_sensor.{vehicle_name}_lids
+# - button.{vehicle_name}_flash_lights
+# - button.{vehicle_name}_sound_horn
+# - button.{vehicle_name}_activate_air_conditioning
+# - button.{vehicle_name}_find_vehicle
+
+# EV Vehicle Entities (additional):
+# - sensor.{vehicle_name}_battery
+# - sensor.{vehicle_name}_remaining_battery_percent
+# - sensor.{vehicle_name}_range_electric
+# - binary_sensor.{vehicle_name}_charging_status
+
+# PHEV Vehicle Entities (combines ICE + EV):
+# - All ICE entities
+# - All EV entities
+
+# =============================================================================
+# TROUBLESHOOTING
+# =============================================================================
+
+# If the card shows "No BMW/MINI vehicles found":
+# 1. Ensure BMW ConnectedDrive integration is installed and configured
+# 2. Check that entities follow the expected naming pattern
+# 3. Verify entities are not disabled in Home Assistant
+# 4. Check the browser console for errors
+
+# If action buttons don't work:
+# 1. Verify button entities exist and are enabled
+# 2. Check that the BMW ConnectedDrive integration has proper permissions
+# 3. Ensure the vehicle is within range for remote commands
+
+# If unit conversion doesn't work:
+# 1. Check that prefer_imperial is set correctly
+# 2. Verify that source values have proper units
+# 3. Check browser console for conversion errors
+
+# If fuel percentage is missing:
+# 1. Set tank_size_l in the card configuration
+# 2. Ensure remaining_fuel sensor is available
+# 3. Check that tank size is in liters
+
+# =============================================================================
+# CUSTOMIZATION TIPS
+# =============================================================================
+
+# 1. Hero Images:
+#    - Place images in /config/www/ directory
+#    - Use high-quality images (recommended: 800x400px)
+#    - Supported formats: JPG, PNG, WebP
+#    - Example: /local/bmw/x5-hero.png
+
+# 2. Multiple Vehicles:
+#    - Use device_id to specify which vehicle to display
+#    - Create separate cards for each vehicle
+#    - Use conditional cards to show different vehicles based on state
+
+# 3. Styling:
+#    - The card inherits Home Assistant's theme
+#    - Use card-mod for additional styling if needed
+#    - CSS custom properties are available for theming
+
+# 4. Integration with Other Cards:
+#    - Use vertical-stack or horizontal-stack for layout
+#    - Combine with entities cards for additional data
+#    - Use conditional cards for dynamic behavior
