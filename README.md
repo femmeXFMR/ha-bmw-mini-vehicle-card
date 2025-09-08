@@ -1,6 +1,21 @@
 # BMW/MINI Vehicle Card for Home Assistant
 
+> **🚧 WORK IN PROGRESS** - This is an active development project. All questions, forks, commits, and contributions are welcome! We're building a universal BMW/MINI vehicle card for the Home Assistant community.
+
 A universal Home Assistant Lovelace card that auto-discovers BMW/MINI vehicles from the ConnectedDrive integration and renders an elegant dashboard for ICE, EV, and PHEV models.
+
+## 🤝 Contributing
+
+**We welcome all contributions!** This project is actively developed and we'd love your help:
+
+- **🐛 Bug Reports**: Found an issue? Please report it!
+- **💡 Feature Requests**: Have ideas? We want to hear them!
+- **🔧 Pull Requests**: Want to contribute code? Submit a PR!
+- **📖 Documentation**: Help improve our docs!
+- **🧪 Testing**: Test with your BMW/MINI vehicle and share feedback!
+- **💬 Discussions**: Join the conversation in GitHub Discussions!
+
+**No contribution is too small** - every bit helps make this card better for the community!
 
 ## ✨ Features
 
@@ -108,8 +123,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card/discussions)
+- **Issues**: [GitHub Issues](https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card/discussions)
 - **Home Assistant Community**: [Forum Thread](https://community.home-assistant.io/t/bmw-mini-vehicle-card/123456)
 
 ---

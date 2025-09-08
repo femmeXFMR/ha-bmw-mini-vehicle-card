@@ -42,9 +42,9 @@
   "requirements": [
     "home-assistant-js-websocket>=1.0.0"
   ],
-  "documentation": "https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card",
-  "issue_tracker": "https://github.com/YOUR_USERNAME/ha-bmw-mini-vehicle-card/issues",
+  "documentation": "https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card",
+  "issue_tracker": "https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card/issues",
   "codeowners": [
-    "@YOUR_USERNAME"
+    "@femmeXFMR"
   ]
 }
