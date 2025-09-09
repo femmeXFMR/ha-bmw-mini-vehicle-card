@@ -14,10 +14,10 @@
 3. Click the **"+"** button in the bottom right
 4. Add the following:
    - **Repository:** `https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card`
-   - **Category:** `Lovelace` (NOT Integration!)
+   - **Type:** `Template` (NOT Integration!)
 5. Click **"Add"**
 
-**⚠️ Important:** Make sure you select **"Lovelace"** as the category, NOT "Integration"!
+**⚠️ Important:** Make sure you select **"Template"** as the type, NOT "Integration"!
 
 ### Step 2: Install the Card
 
@@ -69,7 +69,7 @@ After installation, you should see:
 
 ### "Repository structure for main is not compliant" Error
 - **❌ Wrong:** You selected "Integration" as the type
-- **✅ Correct:** Select "Lovelace" as the category
+- **✅ Correct:** Select "Template" as the type
 - This is a **frontend card**, not a backend integration
 
 ### Card Not Showing
