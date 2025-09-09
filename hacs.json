@@ -2,6 +2,7 @@
   "name": "BMW/MINI Vehicle Card",
   "render_readme": true,
   "filename": "ha-vehicle-card.js",
+  "type": "plugin",
   "country": [
     "US",
     "DE",
