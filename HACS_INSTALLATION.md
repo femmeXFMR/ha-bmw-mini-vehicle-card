@@ -14,10 +14,10 @@
 3. Click the **"+"** button in the bottom right
 4. Add the following:
    - **Repository:** `https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card`
-   - **Type:** `Template` (NOT Integration!)
+   - **Type:** `Plugin` (NOT Integration!)
 5. Click **"Add"**
 
-**⚠️ Important:** Make sure you select **"Template"** as the type, NOT "Integration"!
+**⚠️ Important:** Make sure you select **"Plugin"** as the type, NOT "Integration"!
 
 ### Step 2: Install the Card
 
@@ -69,7 +69,7 @@ After installation, you should see:
 
 ### "Repository structure for main is not compliant" Error
 - **❌ Wrong:** You selected "Integration" as the type
-- **✅ Correct:** Select "Template" as the type
+- **✅ Correct:** Select "Plugin" as the type
 - This is a **frontend card**, not a backend integration
 
 ### Card Not Showing
