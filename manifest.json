@@ -1,0 +1,10 @@
+{
+  "domain": "ha_vehicle_card",
+  "name": "BMW/MINI Vehicle Card",
+  "documentation": "https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card",
+  "issue_tracker": "https://github.com/femmeXFMR/ha-bmw-mini-vehicle-card/issues",
+  "codeowners": ["@femmeXFMR"],
+  "requirements": [],
+  "dependencies": [],
+  "version": "1.0.0"
+}
